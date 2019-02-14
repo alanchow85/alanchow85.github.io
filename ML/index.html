@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<Head> <font color="blue" face="arial" size="4"> This is a testing website designed to illustrate machine learning using K-Nearest Neighbour algorithm to predict your Iris flower based on some sample data 
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script></font color>
+<script src="https://www.lactame.com/lib/ml/2.2.0/ml.min.js"></script>
+<script src="http://mlweb.loria.fr/lalolib.js"></script>
+<script src="./src/ml.min.js" charset="utf-8"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.11.6"> </script> 
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.13.3/dist/tf.min.js"> </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.3.0/math.min.js"></script>
+<Body>
+<br>
+
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>
+</head>
+<body>
+
+<h2>Sample Data</h2>
+
+
+<table style="width:100%">
+  <tr>
+    <th>Type of Iris Flower</th>
+    <th>Length (cm)</th> 
+    <th>Width (cm)</th>
+  </tr>
+  <tr>
+    <td>Setosa</td>
+    <td>5.3</td>
+    <td>3.7</td>
+  </tr>
+  <tr>
+    <td>Setosa</td>
+    <td>5.1</td>
+    <td>3.8</td>
+  </tr>
+  <tr>
+    <td>Virginica</td>
+    <td>7.2</td>
+    <td>2.7</td>
+  </tr>
+    <tr>
+    <td>setosa</td>
+    <td>5.4</td>
+    <td>3.4</td>
+  </tr>
+    <tr>
+    <td>Virginica</td>
+    <td>7.4</td>
+    <td>2.8</td>
+  </tr>
+    <tr>
+    <td>Versicolor</td>
+    <td>6.3</td>
+    <td>2.5</td>
+  </tr>
+    <tr>
+    <td>Versicolor</td>
+    <td>6.5</td>
+    <td>2.4</td>
+  </tr>
+</table>
+
+
+<br>
+Enter the length of the Iris flower <input id="myText01" value="3" placeholder="3" type="text">cm<br>   
+Enter the width of the Iris flower <input id="myText02" value="5" placeholder="5" type="text">cm<br> 
+<button onclick="myFunction()">solve KNN</button>
+
+ <font color="blue" face="arial" size="4"><p id ="data"></p>
+
+
+<font color="blue" face="arial" size="4"><p id ="data4"></p>
+
+<script>
+   
+    // Create a buffer and set values at particular indices.
+//const a = tf.tensor1d([1, 2, 3, 4]);
+//const buffer = tf.buffer(a.shape, a.dtype, a.dataSync());
+//buffer.set(5, 0); //set element 0 to 5;
+//const b = buffer.toTensor();
+// Convert the buffer back to a tensor.
+    //const data2 = data[0]; //to assess data 0
+    
+    function myFunction() {
+    
+    text = document.getElementById('myText01').value;
+    text2 = document.getElementById('myText02').value;
+    
+     const myData    = tf.tensor([[5.3, 3.7],[5.1,3.8],[7.2,2.7],[5.4,3.4],[7.4,2.8],[6.3,2.5],[6.5,2.4]]);
+    const myUnknown = tf.tensor([[text,text2], [text,text2],[text,text2],[text,text2],[text,text2],[text,text2],[text,text2]]);
+    var label     = ["setosa", "setosa","Virginica","Setosa","Virginica","Versicolor","Versicolor"];
+    const mySqrt    = tf.tensor([0.5]);
+    
+    const myDiff = tf.sub(myData, myUnknown);   
+    const mySquaredDiff = tf.mul(myDiff, myDiff);
+    const axis = 1;
+    const mySquaredDiffAdded = mySquaredDiff.sum(axis);
+    const myKNN = mySquaredDiffAdded.pow(mySqrt); 
+    
+    const myKnnArray  = tf.mul(tf.sub(myData, myUnknown),tf.sub(myData, myUnknown)).sum(axis).pow(mySqrt);
+    const data = myKnnArray.dataSync();  //to convert tensor to array to assess info
+    const size = data.length;
+ 
+    var text ;
+    var min = 10000000 ;
+    var position = 10000000;
+    for (i = 0; i< size; i++){
+        if (data[i]<min){
+            min = data[i];
+            position = i ;
+        }
+    }
+    
+   
+    document.getElementById("data").innerHTML = "There are " + size + " sample data points";
+    
+   
+    document.getElementById("data4").innerHTML = "The prediction is " + label[position];
+    }
+    
+    
+    
+</script>
+
+</Body>
+</Html>
