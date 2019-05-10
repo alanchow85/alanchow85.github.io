@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<Head> <font color="blue" face="arial" size="4"> This is a testing website designed to illustrate machine learning using K-Nearest Neighbour algorithm to predict your Iris flowers based on some sample data 
+    
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script></font color>
@@ -10,16 +10,64 @@
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.11.6"> </script> 
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.13.3/dist/tf.min.js"> </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.3.0/math.min.js"></script>
-<Body>
-<br>
 
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="topnav">
+    <a class="active" href="https://alanchow85.github.io/">Home</a>
+    <a href="https://alanchow85.github.io/webAPIcall/">webAPI</a>
+    <a href="https://alanchow85.github.io/tableau/">Dashboard</a>
+    <a href="https://alanchow85.github.io/python/">Python Programming</a>
+    <a href="https://alanchow85.github.io/ML/">Machine Learning</a>
+    <a href="https://alanchow85.github.io/image_classification/">Image Classification</a>
+    <a href="#about">About</a>
+</div>
+
+<div style="padding-left:16px">
+  <h2>Combining Business Process Re-engineering and Data Analytics</h2>
+
+    
+<br>
 <style>
 table, th, td {
   border: 1px solid black;
 }
 </style>
-</head>
-<body>
 
 <h2>Sample Data</h2>
 
@@ -77,17 +125,9 @@ Enter the width of the Iris flower <input id="myText02" value="5" placeholder="5
 
 
 <font color="blue" face="arial" size="4"><p id ="data4"></p>
-
-<script>
-   
-    // Create a buffer and set values at particular indices.
-//const a = tf.tensor1d([1, 2, 3, 4]);
-//const buffer = tf.buffer(a.shape, a.dtype, a.dataSync());
-//buffer.set(5, 0); //set element 0 to 5;
-//const b = buffer.toTensor();
-// Convert the buffer back to a tensor.
-    //const data2 = data[0]; //to assess data 0
     
+    
+<script> 
     function myFunction() {
     
     text = document.getElementById('myText01').value;
@@ -126,8 +166,5 @@ Enter the width of the Iris flower <input id="myText02" value="5" placeholder="5
     }
     
     
-    
 </script>
-
-</Body>
-</Html>
+     </body>
