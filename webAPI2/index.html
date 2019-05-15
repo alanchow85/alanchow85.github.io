@@ -1,0 +1,108 @@
+<html>
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script></font color>
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" crossorigin="anonymous"></script>
+<script src="https://connectors.tableau.com/libs/tableauwdc-2.3.latest.js" type="text/javascript"></script>
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<div class="topnav">
+    <a class="active" href="https://alanchow85.github.io/">Home</a>
+    <a href="https://alanchow85.github.io/webAPIcall/">webAPI</a>
+    <a href="https://alanchow85.github.io/tableau/">Dashboard</a>
+    <a href="https://alanchow85.github.io/python/">Python Programming</a>
+    <a href="https://alanchow85.github.io/ML/">Machine Learning</a>
+    <a href="https://alanchow85.github.io/image_classification/">Image Classification</a>
+    <a href="https://alanchow85.github.io/about/">About</a>
+</div>
+
+<div style="padding-left:16px">
+  <h1>WebAPI storing data</h1>
+</div>
+
+<p id= "output"></p>
+<p id= "output1"></p>
+<script>
+    
+    document.getElementById("output").innerHTML = "testing"
+    
+     var tableData = [];
+        var total;
+        var Quotient;
+        var hundred = 0;
+        
+        var j = 0; 
+            do{
+                $.getJSON("https://data.gov.sg/api/action/datastore_search?offset="+String(j)+"&resource_id=8a087b7c-a11b-4da8-bbb6-ac933f465acd", function(resp) {
+                var feat = resp.result.records;
+                total = resp.result.total;
+                if(resp.result.total > hundred){
+                  hundred = hundred + 100;  
+                }
+                
+                 // Iterate over the JSON object
+                for (var i = 0, len = feat.length; i < len; i++) {
+                    tableData.push({
+                        "id" : feat[i]._id,
+                        "town" : feat[i].town_txt,
+                        "represented" : feat[i].represented,
+                        "completion_date" : feat[i].complete_date_txt,
+                        "number" : feat[i].salesperson_reg_no,
+                        "name" : feat[i].salesperson_name
+                        
+                    });
+                }
+                });
+                j = j + 100;
+            }
+            while(j <= 75000);
+        document.getElementById("output1").innerHTML = tableData[1].completion_date   
+        
+           
+
+    
+    </script>    
+    
+    
+    
+    
+</body>
+
