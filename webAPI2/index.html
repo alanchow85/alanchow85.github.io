@@ -60,26 +60,24 @@ body {
 
 <p id= "output"></p>
 <p id= "output1"></p>
+<p id= "output2"></p>
+<p id= "output3"></p>
 <script>
     
-    document.getElementById("output").innerHTML = "testing2"
+    document.getElementById("output").innerHTML = "testing2";
     
-     var tableData = [];
+        var tableData = [];
         var total;
         var Quotient;
-        var hundred = 0;
-        
-        var j = 0; 
-            do{
+         
+            for (var j=0; j<70000; j = j+ 100) {
                 $.getJSON("https://data.gov.sg/api/action/datastore_search?offset="+String(j)+"&resource_id=8a087b7c-a11b-4da8-bbb6-ac933f465acd", function(resp) {
                 var feat = resp.result.records;
                 total = resp.result.total;
-                if(resp.result.total > hundred){
-                  hundred = hundred + 100;  
-                }
-                
+                len = feat.length;
+        
                  // Iterate over the JSON object
-                for (var i = 0, len = feat.length; i < len; i++) {
+                for (var i = 0; i < len; i++) {
                     tableData.push({
                         "id" : feat[i]._id,
                         "town" : feat[i].town_txt,
@@ -90,17 +88,12 @@ body {
                         
                     });
                 }
-                document.getElementById("output1").innerHTML = feat[i].salesperson_name      
+                document.getElementById("output1").innerHTML = tableData[75].name ;  
+                document.getElementById("output2").innerHTML = tableData[750].name ;  
+                document.getElementById("output3").innerHTML = tableData[60000].name ; 
                 });
-                j = j + 100;
             }
-            while(j <= 75000);
-        //document.getElementById("output1").innerHTML = tableData[1].completion_date   
-        
-           
-
-    
-    </script>    
+</script>    
     
     
     
