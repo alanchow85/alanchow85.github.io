@@ -106,8 +106,8 @@ var API2 = '&returnGeom=Y&getAddrDetails=Y&pageNum=1';
 var tran = [4000,3999,10266,2000,1000,1000,3000,4000,5000,6000,1001,1200,1012,1002,1200];
 var total = [];
 var dataset = [{
-      y: ['Ang Mo Kio', 'Bedok', 'Bishan','Bukit Batok', 'Bukit Merah','Bukit Panjang', 'Bukit Timah', 'Central', 'Choa Chu Kang','Clementi','Geylang','Hougang','Jurong East','Jurong West','Kallang/Whampoa'],
-      x: tran,
+      x: ['Ang Mo Kio', 'Bedok', 'Bishan','Bukit Batok', 'Bukit Merah','Bukit Panjang', 'Bukit Timah', 'Central', 'Choa Chu Kang','Clementi','Geylang','Hougang','Jurong East','Jurong West','Kallang/Whampoa'],
+      y: tran,
       type: 'bar'
     }];
 
@@ -134,15 +134,15 @@ function setup(){
     loadJSON('https://data.gov.sg/api/action/datastore_search?resource_id=1b702208-44bf-4829-b620-4615ee19b57c&q=bishan', gotData3);
     loadJSON('https://data.gov.sg/api/action/datastore_search?resource_id=1b702208-44bf-4829-b620-4615ee19b57c&q=Batok', gotData4);
     loadJSON('https://data.gov.sg/api/action/datastore_search?resource_id=1b702208-44bf-4829-b620-4615ee19b57c&q=merah', gotData5);
-    loadJSON('https://data.gov.sg/api/action/datastore_search?resource_id=1b702208-44bf-4829-b620-4615ee19b57c&q=bukit%20panjang', gotData6);
-    loadJSON('https://data.gov.sg/api/action/datastore_search?resource_id=1b702208-44bf-4829-b620-4615ee19b57c&q=bukit%20timah', gotData7);
-    loadJSON('https://data.gov.sg/api/action/datastore_search?resource_id=1b702208-44bf-4829-b620-4615ee19b57c&q=central%20area', gotData8);
+    loadJSON('https://data.gov.sg/api/action/datastore_search?resource_id=1b702208-44bf-4829-b620-4615ee19b57c&q=panjang', gotData6);
+    loadJSON('https://data.gov.sg/api/action/datastore_search?resource_id=1b702208-44bf-4829-b620-4615ee19b57c&q=timah', gotData7);
+    loadJSON('https://data.gov.sg/api/action/datastore_search?resource_id=1b702208-44bf-4829-b620-4615ee19b57c&q=central', gotData8);
     loadJSON('https://data.gov.sg/api/action/datastore_search?resource_id=1b702208-44bf-4829-b620-4615ee19b57c&q=choa%20chu%20kang', gotData9);
     loadJSON('https://data.gov.sg/api/action/datastore_search?resource_id=1b702208-44bf-4829-b620-4615ee19b57c&q=clementi', gotData10);
     loadJSON('https://data.gov.sg/api/action/datastore_search?resource_id=1b702208-44bf-4829-b620-4615ee19b57c&q=geylang', gotData11);
     loadJSON('https://data.gov.sg/api/action/datastore_search?resource_id=1b702208-44bf-4829-b620-4615ee19b57c&q=hougang', gotData12);
-    loadJSON('https://data.gov.sg/api/action/datastore_search?resource_id=1b702208-44bf-4829-b620-4615ee19b57c&q=jurong%20east', gotData13);
-    loadJSON('https://data.gov.sg/api/action/datastore_search?resource_id=1b702208-44bf-4829-b620-4615ee19b57c&q=jurong%20west', gotData14);
+    loadJSON('https://data.gov.sg/api/action/datastore_search?resource_id=1b702208-44bf-4829-b620-4615ee19b57c&q=east', gotData13);
+    loadJSON('https://data.gov.sg/api/action/datastore_search?resource_id=1b702208-44bf-4829-b620-4615ee19b57c&q=west', gotData14);
     loadJSON('https://data.gov.sg/api/action/datastore_search?resource_id=1b702208-44bf-4829-b620-4615ee19b57c&q=KALLANG/WHAMPOA', gotData15);
     loadJSON('https://data.gov.sg/api/action/datastore_search?resource_id=8a087b7c-a11b-4da8-bbb6-ac933f465acd&limit=5', gotData16);
     
