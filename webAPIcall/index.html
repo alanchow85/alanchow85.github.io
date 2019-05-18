@@ -1,11 +1,66 @@
-<!DOCTYPE html>
 <html>
-<Head> <font color="blue" face="arial" size="4"> This is a Testing website designed to create an Application Programming Protocol (API) across agencies like SLA and Data.gov.sg to find out the full address with postal codes, and the number of "live" HDB Resale transactions for the past years for comparison across various towns.  
+<Head> 
+    
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script></font color>
 </Head>
+    
 <Body>
+    
+<div class="topnav">
+    <a class="active" href="https://alanchow85.github.io/">Home</a>
+    <a href="https://alanchow85.github.io/webAPIcall/">webAPI</a>
+    <a href="https://alanchow85.github.io/tableau/">Dashboard</a>
+    <a href="https://alanchow85.github.io/python/">Python Programming</a>
+    <a href="https://alanchow85.github.io/ML/">Machine Learning</a>
+    <a href="https://alanchow85.github.io/image_classification/">Image Classification</a>
+    <a href="https://alanchow85.github.io/about/">About</a>
+</div>
+<div style="padding-left:16px">
+
+<style>
+    img {
+        width: auto ;
+        max-width: 100%;
+        height: auto;
+    }
+</style>     
+    
+<font color="blue" face="arial" size="4"> This is a Testing website designed to create an Application Programming Protocol (API) across agencies like SLA and Data.gov.sg to find out the full address with postal codes, and the number of "live" HDB Resale transactions for the past years for comparison across various towns.  
+    
 <p id= "output1"></p>
 <p id ="postal"></p>
 
