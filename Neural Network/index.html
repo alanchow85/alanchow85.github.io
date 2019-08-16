@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<Head> <font color="black" face="arial" size="4"> This is a Testing website designed to demostrate Machine Learning Algorithm via neural network model to predict Y1 (output) with X1 to X2 inputs. <Br> Please wait for a while before the set of predicted output appears as the system is set to 1000 times of training.
+<br> The machine will learn from the 15 sets of data that when the Xs is high,the Ys should be lower & vice versa.
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.13.3/dist/tf.min.js"> </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.js"></script>
+
+</Head>
+  <body>
+    
+
+        <Br> <Br> 
+        <font color="blue" face="arial" size="4"><p id ="Adata"></p>
+        <font color="green" face="arial" size="4"><p id ="Bdata"></p>
+        <font color="green" face="arial" size="4"><p id ="Cdata"></p>
+        <font color="green" face="arial" size="4"><p id ="Ddata"></p>
+        
+        <input type="file" id="myFile" multiple size="10" onchange="myFunction()">
+        <p id="filesize"></p>
+       
+       
+        
+    <script>
+        
+      // function preload() {
+    //    table = loadTable('https://docs.google.com/spreadsheets/d/1xhmxZ4-cEap4CttbPBuMb4RgsQO5i9rgRBnG9C9hhB0/edit?usp=sharing', 'csv', 'header');
+      //  txt = loadStrings("https://drive.google.com/file/d/1_W4Kj678pznX7Yfi-_JHHhYMe5EW2-QW/view?usp=sharing");
+           
+       //}
+       
+        function myFunction(){
+        var x = document.getElementById("myFile");
+        document.getElementById("filesize").innerHTML = "size:" + x.name+ "byte";
+        }
+        
+       
+        
+        function setup(){
+       // console.log(txt);
+       
+       // print(table.getRowCount() + ' total rows in table');
+        //print(table.getColumnCount() + ' total columns in table');
+        
+        
+       noCanvas();
+      
+       const model = tf.sequential();
+       
+        const configHidden = {
+            units: 10,
+            inputShape: [2],
+            activation: 'sigmoid'
+        }
+        
+        const configHidden2 = {
+            units: 10,
+            inputShape: [10],
+            activation: 'sigmoid'
+        }
+        
+        const configOutput = {
+            units: 1,
+            //inputShape: [4], //need not be added after you added 1 layer. auto detect
+            activation: 'sigmoid' //the weight is either 1 or 0. forward value is either 1 or 0
+        }
+       
+       
+       const hidden = tf.layers.dense(configHidden);
+       const hidden2 = tf.layers.dense(configHidden2);
+       const output = tf.layers.dense(configOutput);
+            
+       
+            model.add(hidden);
+            model.add(hidden2);
+            model.add(output);
+            
+            const sgdOpt = tf.train.sgd(0.1); //optimiser using stocastic gradient descent and learning Rate to minimize loss is 0.1
+            const config = {
+                optimizer: sgdOpt,
+                loss: tf.losses.meanSquaredError
+            }
+            
+            model.compile(config); //compile the model
+            
+
+            //const pred = tf.tensor([1,1,1,1,1]);
+        
+            const xs = tf.tensor2d([
+                [5,3],
+                [5,3],
+                [7,2],
+                [5,3],
+                [5,3],
+                [5.4,3.9],
+                [7.4,2.8],
+                [6.1,2.8],
+                [7.3,2.1],
+                [6.0,2.7],
+                [7.1,2.8],
+                [6.3,2.5],
+                [6.5,2.5],
+                [6.3,2.5],
+                [6.5,2.4],
+            ]);
+            document.getElementById("Adata").innerHTML = "Matrix of 3 sets of X1 to X5 independent data:    "+xs;
+            const ys = tf.tensor2d([
+                [0],
+                [0],
+                [1],
+                [0],
+                [0],
+                [0],
+                [1],
+                [0.5],
+                [1],
+                [0.5],
+                [1],
+                [0.5],
+                [0.5],
+                [0.5],
+                [0.5],
+                ]);
+                document.getElementById("Bdata").innerHTML = "Matrix of 3 sets of Y1 to Y4 dependent data that correspond to the Xs:    " + ys;
+                train().then(() => {
+                    console.log('training complete');
+                    let outputs = model.predict(xs); 
+                    outputs.print();
+                    document.getElementById("Cdata").innerHTML = "Matrix of predicted Y1 to Y4 that corespond to the Xs:    " + outputs;
+                });
+                
+            async function train(){
+                for (let i = 0; i < 10; i++){
+                const config = { 
+                    shuffle: true
+                }
+                const response = await model.fit(xs,ys, config);
+                console.log(response.history.loss[0]);
+                
+                }
+            
+            }
+            
+         
+          
+          
+        }
+    </script>
+      
+  </body>
+</html>
