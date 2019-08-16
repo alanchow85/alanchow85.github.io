@@ -51,19 +51,19 @@
        const model = tf.sequential();
        
         const configHidden = {
-            units: 10,
-            inputShape: [2],
+            units: 6,
+            inputShape: [9],
             activation: 'sigmoid'
         }
         
         const configHidden2 = {
-            units: 10,
-            inputShape: [10],
+            units: 4,
+            inputShape: [6],
             activation: 'sigmoid'
         }
         
         const configOutput = {
-            units: 1,
+            units: 3,
             //inputShape: [4], //need not be added after you added 1 layer. auto detect
             activation: 'sigmoid' //the weight is either 1 or 0. forward value is either 1 or 0
         }
@@ -90,46 +90,36 @@
             //const pred = tf.tensor([1,1,1,1,1]);
         
             const xs = tf.tensor2d([
-                [5,3],
-                [5,3],
-                [7,2],
-                [5,3],
-                [5,3],
-                [5.4,3.9],
-                [7.4,2.8],
-                [6.1,2.8],
-                [7.3,2.1],
-                [6.0,2.7],
-                [7.1,2.8],
-                [6.3,2.5],
-                [6.5,2.5],
-                [6.3,2.5],
-                [6.5,2.4],
+                [1,1,0,0,1,0,0,1,1],
+                [1,1,1,1,0,1,1,1,1],
+                [1,0,0,1,0,0,1,0,0],
+                [1,0,0,1,0,0,1,0,0],
+                [1,1,1,1,0,1,1,1,1],
+                [1,1,1,1,0,1,1,1,1],
+                [1,0,0,1,0,0,1,0,0],
+                [1,0,0,1,0,0,1,0,0],
+                [1,1,1,1,0,1,1,1,1],
+                [1,1,0,0,1,0,0,1,1],
             ]);
-            document.getElementById("Adata").innerHTML = "Matrix of 3 sets of X1 to X5 independent data:    "+xs;
+            document.getElementById("Adata").innerHTML = "Matrix of 10 sets of X1 to X9 independent data:    "+xs;
             const ys = tf.tensor2d([
-                [0],
-                [0],
-                [1],
-                [0],
-                [0],
-                [0],
-                [1],
-                [0.5],
-                [1],
-                [0.5],
-                [1],
-                [0.5],
-                [0.5],
-                [0.5],
-                [0.5],
+                [1,1,1],
+                [0,0,0],
+                [0,0,1],
+                [0,0,1],
+                [0,0,0],
+                [0,0,0],
+                [0,0,1],
+                [0,0,1],
+                [0,0,0],
+                [1,1,1],
                 ]);
-                document.getElementById("Bdata").innerHTML = "Matrix of 3 sets of Y1 to Y4 dependent data that correspond to the Xs:    " + ys;
+                document.getElementById("Bdata").innerHTML = "Matrix of 10 sets of Y1 to Y3 dependent data that correspond to the Xs:    " + ys;
                 train().then(() => {
                     console.log('training complete');
                     let outputs = model.predict(xs); 
                     outputs.print();
-                    document.getElementById("Cdata").innerHTML = "Matrix of predicted Y1 to Y4 that corespond to the Xs:    " + outputs;
+                    document.getElementById("Cdata").innerHTML = "Matrix of predicted Y1 to Y3 that correspond to the Xs:    " + outputs;
                 });
                 
             async function train(){
@@ -139,7 +129,6 @@
                 }
                 const response = await model.fit(xs,ys, config);
                 console.log(response.history.loss[0]);
-                
                 }
             
             }
