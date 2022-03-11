@@ -151,12 +151,20 @@ Enter the width of the Iris flower <input id="myText02" value="5" placeholder="5
  
     var text ;
     var min = 10000000 ;
+    var min2 = 10000000 ; 
     var position = 10000000;
+    var position2 = 10000000;
+        
     for (i = 0; i< size; i++){
         if (data[i]<min){
             min = data[i];
             position = i ;
         }
+        else if (data[i]<min && min2>min){
+            min2 = data[i];
+            position2 = i ;
+        }
+                 
     }
     
    
@@ -164,6 +172,7 @@ Enter the width of the Iris flower <input id="myText02" value="5" placeholder="5
     
    
     document.getElementById("data4").innerHTML = "The prediction is " + label[position];
+    document.getElementById("data4").innerHTML = "The 2nd prediction is " + label[position2];
     }
     
     
