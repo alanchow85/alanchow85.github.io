@@ -125,7 +125,7 @@ body, html {
 }
 
 body {
-  //background-image: url('greenpasture.jpg');
+  background-image: url('greenpasture.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;  
   background-size: cover;
@@ -273,7 +273,7 @@ margin: auto;
 <br>
 
 <div class="topnav">
-    <a href="https://teamsite.cpfnet.gov.sg/sites/sot/SoTPortal/SitePages/home.aspx">Home</a>
+    <a href="https://https://alanchow85.github.io/home.html">Home</a>
     <a class="active" href="https://teamsite.cpfnet.gov.sg/sites/sot/SoTPortal/SitePages/SoT-Programmes.aspx">SoT programmes</a>
     <a href="https://teamsite.cpfnet.gov.sg/sites/sot/SoTPortal/SitePages/events.aspx">SoT events</a>
     <a href="https://teamsite.cpfnet.gov.sg/sites/sot/SoTPortal/SitePages/self-help.aspx">Virtual Learning</a>
@@ -286,9 +286,9 @@ margin: auto;
 
 <div class="left">
 <div class="card">
-<h2>IDS Induction <br>Programme</h2>
+<h2>What is Business Process Re-engineering (BPR)</h2>
 <div class="img-container"> <img src="IDS Induction.png" style= "width:400px; height:300px; border-radius:50%"> </div>
-<h5>This programme is developed to gain a basic understanding of the IDS technological environment.<br><br> </h5>
+<h5>This section is developed to gain a basic understanding of the BPR.<br><br> </h5>
 <div class="img-container"><input type="butn" class="butn" value="Find out More!" onClick ="location.href='https://teamsite.cpfnet.gov.sg/sites/sot/SoTPortal/SitePages/SoT-Programmes-detail1.aspx'"></div>
 </div>
 </div>
