@@ -1,5 +1,15 @@
 <!DOCTYPE html>
 <html>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script></font color>
+<script src="https://www.lactame.com/lib/ml/2.2.0/ml.min.js"></script>
+
+<script src="./src/ml.min.js" charset="utf-8"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.11.6"> </script> 
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.13.3/dist/tf.min.js"> </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.3.0/math.min.js"></script>
+  
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -340,6 +350,125 @@ table, th, td {
     <br><br><img src="sup3.PNG" width="1000" height="500" align="middle">
     </h4>
   
+    
+  <div style="padding-left:16px">
+  <h1>Machine Learning - K-Nearest Neigbour algorithm demostration</h1>
+
+    
+<br>
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>
+
+<h2>Sample Data</h2>
+
+
+<table style="width:100%">
+  <tr>
+    <th>Type of Iris Flower</th>
+    <th>Length (cm)</th> 
+    <th>Width (cm)</th>
+  </tr>
+  <tr>
+    <td>Setosa</td>
+    <td>5.3</td>
+    <td>3.7</td>
+  </tr>
+  <tr>
+    <td>Setosa</td>
+    <td>5.1</td>
+    <td>3.8</td>
+  </tr>
+  <tr>
+    <td>Virginica</td>
+    <td>7.2</td>
+    <td>2.7</td>
+  </tr>
+    <tr>
+    <td>setosa</td>
+    <td>5.4</td>
+    <td>3.4</td>
+  </tr>
+    <tr>
+    <td>Virginica</td>
+    <td>7.4</td>
+    <td>2.8</td>
+  </tr>
+    <tr>
+    <td>Versicolor</td>
+    <td>6.3</td>
+    <td>2.5</td>
+  </tr>
+    <tr>
+    <td>Versicolor</td>
+    <td>6.5</td>
+    <td>2.4</td>
+  </tr>
+</table>
+
+
+<br>
+Enter the length of the Iris flower <input id="myText01" value="3" placeholder="3" type="text">cm<br>   
+Enter the width of the Iris flower <input id="myText02" value="5" placeholder="5" type="text">cm<br> 
+<button onclick="myFunction()">solve KNN</button>
+
+ <font color="blue" face="arial" size="4"><p id ="data"></p>
+
+<font color="blue" face="arial" size="4"><p id ="data3"></p>
+<font color="blue" face="arial" size="4"><p id ="data4"></p>
+    
+    
+<script> 
+    function myFunction() {
+    
+    text = document.getElementById('myText01').value;
+    text2 = document.getElementById('myText02').value;
+    
+     const myData    = tf.tensor([[5.3, 3.7],[5.1,3.8],[7.2,2.7],[5.4,3.4],[7.4,2.8],[6.3,2.5],[6.5,2.4]]);
+    const myUnknown = tf.tensor([[text,text2], [text,text2],[text,text2],[text,text2],[text,text2],[text,text2],[text,text2]]);
+    var label     = ["setosa", "setosa","Virginica","Setosa","Virginica","Versicolor","Versicolor"];
+    const mySqrt    = tf.tensor([0.5]);
+    
+    const myDiff = tf.sub(myData, myUnknown);   
+    const mySquaredDiff = tf.mul(myDiff, myDiff);
+    const axis = 1;
+    const mySquaredDiffAdded = mySquaredDiff.sum(axis);
+    const myKNN = mySquaredDiffAdded.pow(mySqrt); 
+    
+    const myKnnArray  = tf.mul(tf.sub(myData, myUnknown),tf.sub(myData, myUnknown)).sum(axis).pow(mySqrt);
+    const data = myKnnArray.dataSync();  //to convert tensor to array to assess info
+    const size = data.length;
+ 
+    var text ;
+    var min = 10000000 ;
+    var min2 = 10000000 ; 
+    var position = 10000000;
+    var position2 = 10000000;
+        
+    for (i = 0; i< size; i++){
+        if (data[i]<min){
+            min = data[i];
+            position = i ;
+        }
+        else if (data[i]<min2 && min2>min){
+            min2 = data[i];
+            position2 = i ;
+        }
+                 
+    }
+    
+   
+    document.getElementById("data").innerHTML = "There are " + size + " sample data points";
+    
+   
+    document.getElementById("data3").innerHTML = "The prediction is " + label[position];
+    document.getElementById("data4").innerHTML = "The 2nd prediction is " + label[position2];
+    }
+    
+    
+</script>
 
 <!-- Bootstrap Bundle with Popper -->
 <script src="../SiteAssets/js/bootstrap.bundle.min.js"></script>
