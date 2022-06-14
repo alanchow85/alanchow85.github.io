@@ -235,7 +235,7 @@ body {
 
 .left {
   float: left;
-  width: 340px;
+  // width: 340px;
   padding: 10px;
 }
 
