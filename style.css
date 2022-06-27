@@ -11,8 +11,8 @@
 
 /* Caption text */
 .text {
-  color: white;
-  font-size: 45px;
+  color: #f2f2f2;
+  font-size: 22px;
   padding: 8px 12px;
   position: absolute;
   width: 100%;
@@ -23,7 +23,7 @@
 }
 
 .text2 {
-  color: #696969;
+  color: green;
   font-size: 20px;
   padding-left: 10px;
   padding-right: 10px;
@@ -34,7 +34,7 @@
 }
 
 .text3 {
-  color: #696969;
+  color: coral;
   font-size: 20px;
   padding: 8px 12px;
   position: absolute;
@@ -99,8 +99,7 @@ body, html {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #696969;
-  font-size: 30px;
+  color: white
 }
 
 .hero-text button {
@@ -121,7 +120,6 @@ body, html {
 
 body {
   background-image: url('greenpasture.jpg');
-  background-color: white;
   background-repeat: no-repeat;
   background-attachment: fixed;  
   background-size: cover;
@@ -189,6 +187,7 @@ body {
   font-weight: bold;
 }
 
+
 .butn{
  padding: 10px 10px;
  text-align: center;
@@ -209,14 +208,11 @@ body {
 
 .card {
   
-  padding: 10px;
+  padding: 20px;
   text-align: center;
   background-color:transparent;
   border-radius: 30px;
   height: 650px;
-
-
-
 }
 
 .card:hover {
@@ -228,14 +224,14 @@ body {
 
 .right {
   float: right;
-  width: 680px;
+  width: 800px;
   padding: 5px;
 }
 
 .left {
   float: left;
-  width: 340px;
-  padding: 10px;
+  width: 420px;
+  padding: 8px;
 }
 
 .img-container {
@@ -243,7 +239,13 @@ body {
 }
 
 .card-wrapper {
-  width: 74%;
-  text-align: center;
-  margin: auto; 
+width: 75%;
+height: 700px;
+margin: auto;
+}
+
+.card-wrapper2 {
+width: 920px;
+height: 810px;
+margin: auto;
 }
