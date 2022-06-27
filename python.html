@@ -60,9 +60,10 @@ from sklearn.linear_model import LinearRegression
 x = np.array([[1, 1], [1, 2], [2, 2], [2, 3]])
 y = np.dot(x, np.array([1, 2])) + 3
 reg = LinearRegression().fit(x, y)                         
-reg.predict(np.array([[3, 5]]))
+z = reg.predict(np.array([[3, 5]]))
 
 print("Linear predictive model")
+print(z)                               
                            
 </py-script>                                     
                                    
