@@ -6,7 +6,10 @@
 
 <py-env>
 - matplotlib
-- numpy                                                          
+- numpy
+- sklearn
+- pandas                                                          
+                                                          
  </py-env>
                                                           
                                                           
@@ -50,7 +53,9 @@ fig
 <py-script output="plot3">  
 import matplotlib.pyplot as plt
 import numpy as np                        
-
+import pandas as pd
+from sklearn import linear_model
+                         
 x = np.random.randn(1000)
 y = np.random.randn(1000)
 
