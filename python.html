@@ -9,15 +9,15 @@
  </py-env>
                                                           
                                                           
-<body>                                                          
-
-
-
+ <body>                                                          
 <py-script> 
-print("Now you can write python in HTML with py-script tag!")                                                             
+  print("Now you can write python in HTML with py-script tag!")                                                             
 </py-script>
 
-<py-script output="plot">                                                             
+ <div id="plot"></div>                                                             
+                                                              
+<py-script output="plot">  
+                        
 import matplotlib.pyplot as plt
 
 x = [5,7,8,7,2,17,2,9,4,11,12,9,6]
