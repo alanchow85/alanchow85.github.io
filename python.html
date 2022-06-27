@@ -16,7 +16,7 @@
 </py-script>
 
  <div id="scatterplot"></div>                                                             
- <div id="plot2"></div> 
+ <div id="random"></div> 
 
                                                              
 <py-script output="scatterplot">  
@@ -29,10 +29,10 @@ y = [99,86,87,88,111,86,103,87,94,78,77,85,86]
                                    
 fig, ax = plt.subplots()                        
 ax.scatter(x, y)
-fig                                                        
+fig  # if we put fig as the last line, it will execute - pyscript.write('scatterplot', fig)                                                                           
 </py-script>
                         
-<py-script output="plot2">  
+<py-script output="random">  
 import matplotlib.pyplot as plt
 import numpy as np                        
 
