@@ -17,7 +17,7 @@
 
  <div id="scatterplot"></div>                                                             
  <div id="random"></div> 
-
+<div id="plot3"></div> 
                                                              
 <py-script output="scatterplot">  
                         
@@ -46,6 +46,20 @@ ax.scatter(x, y)
 fig
                            
 </py-script>                        
-                         
+
+<py-script output="plot3">  
+import matplotlib.pyplot as plt
+import numpy as np                        
+
+x = np.random.randn(1000)
+y = np.random.randn(1000)
+
+print("Plotting 1000 random points")
+fig, ax = plt.subplots()
+ax.scatter(x, y)
+fig
+                           
+</py-script>                                     
+                                   
 </body>       
 </html>
