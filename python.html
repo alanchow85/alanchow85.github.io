@@ -26,7 +26,8 @@ import numpy as np
 
 x = [5,7,8,7,2,17,2,9,4,11,12,9,6]
 y = [99,86,87,88,111,86,103,87,94,78,77,85,86]
-                                   
+
+print("Plotting specific points")                                    
 fig, ax = plt.subplots()                        
 ax.scatter(x, y)
 fig  # if we put fig as the last line, it will execute - pyscript.write('scatterplot', fig)                                                                           
@@ -39,6 +40,7 @@ import numpy as np
 x = np.random.randn(1000)
 y = np.random.randn(1000)
 
+print("Plotting 1000 random points")
 fig, ax = plt.subplots()
 ax.scatter(x, y)
 fig
