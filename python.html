@@ -6,6 +6,7 @@
 
 <py-env>
 - matplotlib
+- numpy                                                          
  </py-env>
                                                           
                                                           
@@ -14,21 +15,37 @@
   print("Now you can write python in HTML with py-script tag!")                                                             
 </py-script>
 
- <div id="plot"></div>                                                             
-                                                              
-<py-script output="plot">  
+ <div id="scatterplot"></div>                                                             
+ <div id="plot2"></div> 
+
+                                                             
+<py-script output="scatterplot">  
                         
 import matplotlib.pyplot as plt
+import numpy as np                        
 
 x = [5,7,8,7,2,17,2,9,4,11,12,9,6]
 y = [99,86,87,88,111,86,103,87,94,78,77,85,86]
-
-fig, ax = plt.subplots()
+                                   
+fig, ax = plt.subplots()                        
+ax.scatter(x, y)
+fig                                                        
+</py-script>
                         
+<py-script output="plot2">  
+                        
+import matplotlib.pyplot as plt
+import numpy as np                        
+
+x = [5,7,8,7,2,17,2,9,4,11,12,9,6]
+y = [99,86,87,88,111,86,103,87,94,78,77,85,86]
+                   
+                        
+fig, ax = plt.subplots()                        
 ax.scatter(x, y)
 fig
                                                             
-</py-script>
+</py-script>                        
 </body>
                                 
 </html>
