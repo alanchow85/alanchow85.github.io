@@ -41,7 +41,7 @@ uploadButton = pn.widgets.Button(name='Upload', button_type = 'primary')
 
 table = pn.widgets.Tabulator(pagination='remote', page_size=10)
 storage = pn.widgets.Tabulator(pagination='remote', page_size=10)
-new = pd.DataFrame(data=table, columns='CYLINDERS')
+
 
 document.getElementById('table').style.display = 'none'
 document.getElementById('storage').style.display = 'none'    
@@ -55,6 +55,7 @@ def process_file(event):
 def store(event):
     if fileInput.value is not None:
         storage.value = pd.read_csv(io.BytesIO(fileInput.value))
+        storage.value = pd.DataFrame(data=table, columns='CYLINDERS')
     else:
         document.getElementById('storage').style.display = 'block'    
     
