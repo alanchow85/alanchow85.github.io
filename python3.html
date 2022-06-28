@@ -2,62 +2,47 @@
 
 <head>
 
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-    <script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.9.3/dist/js/tabulator.js"></script>
-    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-2.4.2.js"></script>
-    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.4.2.min.js"></script>
-    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.4.2.min.js"></script>
-    <script type="text/javascript" src="https://unpkg.com/@holoviz/panel@0.13.0/dist/panel.min.js"></script>
-    <script type="text/javascript">
-      Bokeh.set_log_level("info");
-    </script>
+<title>
 
-    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
-    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
-    <py-env>
-        - numpy
-        - pandas
-        - panel==0.13.1a2
-    </py-env>
+Read CSV with Pandas using PyScript
+    
+</title>
+
+<link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+<script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+
+<!---pyodide--> 
+
+<py-env>
+    - pandas
+</py-env>
+
 </head>
 
 <body>
-    <h1>Upload csv</h1>
+    
+    <h1>Read CSV with Pandas using PyScript</h1>
 
-        
-          
-                <div id="fileinput"></div>
-                <div id="upload"></div>
-                <div id="table"></div>
-            
-        
-     
+    <p id="csv"></p>
+
     <py-script>
-import asyncio
-import panel as pn
-import pandas as pd
-from panel.io.pyodide import show
 
-fileInput = pn.widgets.FileInput(accept='.csv')
-uploadButton = pn.widgets.Button(name='upload', button_type = 'Primary')
+        import pandas as pd 
 
-table = pn.widgets.Tabulator(pagination='remote', page_size=10)
+        from pyodide.http import open_url
 
-document.getElementById('table').style.display = 'none'
+        url_content = open_url("https://raw.githubusercontent.com/mwaskom/seaborn-data/master/diamonds.csv")
 
-def process_file(event):
-    if fileInput.value is not None:
-        table.value = pd.read_csv(io.BytesIO(fileInput.value))
-        document.getElementById('table').style.display = 'block'
+        df = pd.read_csv(url_content)
 
-uploadButton.on_click(process_file)
+        #print(df)
+        
+        csv = Element('csv')
 
-await show(fileInput, 'fileinput')
-await show(uploadButton, 'upload')
-await show(table, 'table')
+        csv.write(df.head())
+
     </py-script>
+
 </body>
 
-</html> 
+</html>
