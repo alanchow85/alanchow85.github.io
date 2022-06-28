@@ -27,17 +27,7 @@ import matplotlib.pyplot as plt
 
 # Read the CSV file :
 data = pd.read_csv("fuel.csv")
-data.head()
-# Let’s select some features to explore more :
-data = data[["ENGINESIZE","CO2EMISSIONS"]]
-# ENGINESIZE vs CO2EMISSIONS:
-                              
-fig, ax = plt.subplots()                        
-
-ax.scatter(data["ENGINESIZE"] , data["CO2EMISSIONS"] , color="blue")
-ax.xlabel("ENGINESIZE")
-ax.ylabel("CO2EMISSIONS")
-fig   
+  
                          
 </py-script>
                                                        
