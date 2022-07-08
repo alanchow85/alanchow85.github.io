@@ -35,7 +35,7 @@ output = f"GET request=> status:{response.status}, json:{await response.json()}"
 
 
         
-pyscript.write('request_output', output.result.records)
+pyscript.write('request_output', output.result.records[1])
 
     </py-script>
     </body>
