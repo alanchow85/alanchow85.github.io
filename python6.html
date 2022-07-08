@@ -25,13 +25,18 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import csv 
 import json
                                
-file = open('fuel.csv')
-csvreader = csv.reader(file)                               
-  
-                         
+def jprint(obj):
+    # create a formatted string of the Python JSON object
+    text = json.dumps(obj, sort_keys=True, indent=4)
+    print(text)                            
+
+street = input("what is street or town you are at so as i can do an API call to get live free carpark")
+api1 = "https://data.gov.sg/api/action/datastore_search?resource_id=139a3035-e624-4f56-b63f-89ae28d4ae4c&q="
+api2 = api1 + street
+print(api2)
+                                                                                                            
 </py-script>
                                                        
 </body>       
