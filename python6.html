@@ -1,0 +1,36 @@
+<html>
+<head> 
+<link rel="stylesheet" href= https://pyscript.net/alpha/pyscript.css">
+<script defer src="https://pyscript.net/alpha/pyscript.js"></script>                                                           
+</head>                                                                   
+
+<py-env>
+- matplotlib
+- numpy
+- pandas
+                                                          
+ </py-env>
+                                                          
+                                                          
+ <body>                                                          
+<py-script> 
+  print("Now you can write python in HTML with py-script tag!")                                                             
+</py-script>
+
+ <div id="scatterplot"></div>                                                             
+                                                             
+<py-script output="scatterplot">  
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import csv 
+                               
+file = open('fuel.csv')
+csvreader = csv.reader(file)                               
+  
+                         
+</py-script>
+                                                       
+</body>       
+</html>
