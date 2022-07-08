@@ -33,7 +33,18 @@ response = await pyfetch(url="https://data.gov.sg/api/action/datastore_search?re
 
 output = f"GET request=> status:{response.status}, json:{await response.json()}"
 
-        
+jprint(records)
+
+free = []
+
+for d in records:
+    if d['free_parking'] == 'SUN & PH FR 7AM-10.30PM':
+        if float(d['x_coord']) > 0.97*float(x) and float(d['x_coord']) < 1.03*float(x):
+            if float(d['y_coord']) > 0.97*float(y) and float(d['y_coord']) < 1.03*float(y):
+                fp = d['address']
+                free.append(fp)
+
+jprint(free)        
         
 pyscript.write('request_output', output)
 
