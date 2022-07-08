@@ -17,7 +17,7 @@
     <body style='font-size: 20px;'>
         <h1>PyScript - HTTP Requests pyfetch</h1>
         <div id="request_output"></div>
-        <div id="request_output2"></div>
+        
     <py-script>
         
 def jprint(obj):
@@ -33,10 +33,10 @@ response = await pyfetch(url="https://data.gov.sg/api/action/datastore_search?re
 
 output = f"GET request=> status:{response.status}, json:{await response.json()}"
 
-pp = jprint(output)        
+        
         
 pyscript.write('request_output', output)
-pyscript.write('request_output2', pp)
+
     </py-script>
     </body>
 </html>
