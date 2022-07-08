@@ -8,31 +8,28 @@
 - pandas                                                          
 - matplotlib
 - numpy
-- json                                                        
+                                                      
  </py-env>
                                                                                                                    
  <body>                                                          
 <py-script> 
   print("Now you can write python in HTML with py-script tag!")                                                             
 </py-script>
-                                                        
-                                                             
-<py-script>  
 
+<p id="csv"></p>
+           
+<py-script>  
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import json
-                               
-def jprint(obj):
-    # create a formatted string of the Python JSON object
-    text = json.dumps(obj, sort_keys=True, indent=4)
-    print(text)                            
+from pyodide.http import open_url
 
-street = input("what is street or town you are at so as i can do an API call to get live free carpark")
-api1 = "https://data.gov.sg/api/action/datastore_search?resource_id=139a3035-e624-4f56-b63f-89ae28d4ae4c&q="
-api2 = api1 + street
-print(api2)
+url_content = open_url('https://alanchow85.github.io/fuel.csv')                                                              
+df = pd.read_csv(url_content)
+
+#trying to print info in df like shape or even content
+csv = Element('CSV')
+csv.write(df.shape)                                                              
                                                                                                             
 </py-script>
                                                        
