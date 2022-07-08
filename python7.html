@@ -19,6 +19,13 @@
         <div id="request_output"></div>
 
     <py-script>
+        
+def jprint(obj):
+    # create a formatted string of the Python JSON object
+    text = json.dumps(obj, sort_keys=True, indent=4)
+    print(text)        
+
+        
 from pyodide.http import pyfetch
 import asyncio
 
@@ -26,6 +33,8 @@ response = await pyfetch(url="https://data.gov.sg/api/action/datastore_search?re
 
 output = f"GET request=> status:{response.status}, json:{await response.json()}"
 
+jprint(output)        
+        
 pyscript.write('request_output', output)
     </py-script>
     </body>
