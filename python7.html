@@ -22,7 +22,7 @@
 from pyodide.http import pyfetch
 import asyncio
 
-response = await pyfetch(url="https://jsonplaceholder.typicode.com/todos/1", method="GET")
+response = await pyfetch(url="https://data.gov.sg/api/action/datastore_search?resource_id=139a3035-e624-4f56-b63f-89ae28d4ae4c&q=ang%20mo%20kio", method="GET")
 
 output = f"GET request=> status:{response.status}, json:{await response.json()}"
 
