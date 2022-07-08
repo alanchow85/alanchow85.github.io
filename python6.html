@@ -18,7 +18,7 @@
 </py-script>
 
 <p id="csv"></p>
-           
+<p id="csv2"></p>           
 <py-script>  
 import pandas as pd
 import numpy as np
@@ -31,7 +31,7 @@ df = pd.read_csv(url_content)
 
 csv = Element('csv')
 csv.write(df.shape)                                                              
-                                                                                                            
+csv2.write(df)                                                                                                             
 </py-script>
                                                        
 </body>       
