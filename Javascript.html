@@ -2,6 +2,14 @@
 <html>
   <head> 
    <link rel="stylesheet" type="text/css" href="styles2.css"> 
+   <script>
+   function greeting(){
+   alert('hello everyone');
+   }
+     
+     
+    </script>  
+    
   </head>
  
   <body> 
@@ -32,12 +40,12 @@
     
     <br><br>
     
-    <form onsubmit="greet()">
+    <form onsubmit="greet(); return false;">
       <input type= "text" id="name">
       <input type="submit">
     </form>
     
-    
+
     
   </body>
   
