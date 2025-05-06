@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MobileNetV2 Demo</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
+</head>
+<body>
+    <h1> Image Classification [Tapping on the convolutional convolutional neural networks of MobileNet]</h1>
+    <h2>This is a Demostration of using Tensor Flow Machine Learning 5 and Mobilenet to perform Image classification. This algorithm may be integrated with other systems to classify images.</h2>
+
+    <input type="file" id="upload" accept="image/*">
+    <img id="image" width="350" style="display:none;">
+    <p id="result"></p>
+
+    <script>
+        const upload = document.getElementById('upload');
+        const image = document.getElementById('image');
+        const result = document.getElementById('result');
+
+        upload.addEventListener('change', async (event) => {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                image.src = e.target.result;
+                image.style.display = 'block';
+                classifyImage();
+            };
+            reader.readAsDataURL(file);
+        });
+
+        async function classifyImage() {
+            const model = await mobilenet.load({ version: 2, alpha: 1.0 });
+            const predictions = await model.classify(image);
+            result.innerHTML = `Prediction: ${predictions[0].className} (${(predictions[0].probability * 100).toFixed(2)}%)`;
+        }
+    </script>
+</body>
+</html>
