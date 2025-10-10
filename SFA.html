@@ -25,8 +25,9 @@
             const apiUrl = 'https://api.example.com/submit'; // Replace with your API endpoint
 
             const formData = new FormData(this); // Get form data
-            const data = Object.fromEntries(formData.entries()); // Convert to plain object
-
+            
+            //const data = Object.fromEntries(formData.entries()); // Convert to plain object
+            
             try {
                 const response = await fetch(apiUrl, {
                     method: 'POST',
@@ -35,7 +36,18 @@
                         'Authorization': `Bearer ${apiKey}` // Include API key in Authorization header
                         // Or a custom header, e.g., 'X-API-KEY': apiKey
                     },
-                    body: JSON.stringify(data) // Send data as JSON
+                    //body: JSON.stringify(data) // Send data as JSON
+                    body: {
+                              "assignees": [
+                                "string"
+                              ],
+                              "fields": {},
+                              "status": "string",
+                              "tags": [
+                                "string"
+                              ],
+                              "type": "string"
+                            }
                 });
 
                 if (!response.ok) {
