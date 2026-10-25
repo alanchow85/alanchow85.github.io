@@ -54,7 +54,7 @@ body, html {
 }
 
 body {
-  background-image: url('greenpasture.jpg');
+  background-image: url('images/greenpasture.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;  
   background-size: cover;
@@ -210,7 +210,7 @@ img {
 <div class="left">
 <div class="card">
 <h2>Join us in this Learning Journey together</h2>
-<div class="img-container"> <img src="tech.png" alt="..." width="450" height="300"> </div>
+<div class="img-container"> <img src="images/technology-overview.png" alt="..." width="450" height="300"> </div>
 <h5>Our SoT programmes provide a holistic coverage from induction programme for newcomers to continual learning programmes for the senior officers</h5>
 
 <div class="left"><input type="butn" class="butn" value="Get started!" onClick ="location.href='https://teamsite.cpfnet.gov.sg/sites/sot/SoTPortal/SitePages/SoT-Programmes.aspx';"></div>
