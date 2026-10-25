@@ -1,86 +1,267 @@
+<!DOCTYPE HTML>
 <html>
+	<head>
+		<title>Alan's Website</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="homepage">
+		<div id="page-wrapper">
 
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script></font color>
+			<!-- Header -->
+				<div id="header-wrapper">
+					<header id="header" class="container">
 
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
+						<!-- Logo -->
+							<div id="logo">
+								<h1><a href="index.html">Digital Ace</a></h1>
+							</div>
+						<!-- Nav -->
+							<nav id="nav">
+								<ul>
+									<li class="current"><a href="index.html">Home</a></li>
+									<li><a href="pages/process.html">Reengineer Process</a></li>
+									<li><a href="pages/technologies.html">Tech</a></li>
+									<li><a href="pages/people.html">Upskill People</a></li>
+									<li><a href="pages/about.html">About Us</a></li>
+									<li><a href="pages/cert.html">Awards</a></li>
+									<li><a href="pages/home2.html">BPR &amp; Analytics</a></li>
+								</ul>
+							</nav>
 
-.topnav {
-  overflow: hidden;
-  background-color: #333;
-}
+					</header>
+				</div>
 
-.topnav a {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
+			<!-- Banner -->
+			<div class="slideshow-container">
 
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
+				<div class="mySlides fade">  
+				  <img src="./images/backgrounds/bluebackground4.png" style="height:40%">
+				<div class="text">
+					<p size="7em" style="color: #000002; font-weight: 900">Welcome to my Digital Transformation Portal!</p>
+					<p size="0.5em" style="color: #778899">Building digital capabilities for the future-ready Singapore</p>
+					
+				</div>
+					
+				</div>
+				
+				<div class="mySlides fade">  
+				  <img src="./images/backgrounds/bluebackground4.png" style="height: 40%">
+				  <div class="text2"> <img src="images/people/alanCartoon.jpg" style="width:20%; border-radius:80%; float:left; padding:8px;">
+				  <h3>"In my view, all digital transformation office/school should be set up with a mission to enhance the organisation's capabilities to leverage technologies to automate mandune tasks or augment our decision making with data, for continuity of IT support and successful implementation of new initiatives."</h3> 
+				  <h4 style="color: #778899">Mr Alan Chow<br> Project Management Professional (PMP)<h4>
+				  </div>
+				</div>
+				
+				<div class="mySlides fade">  
+				  <img src="./images/backgrounds/bluebackground4.png" style="height: 40%">
+				  <div class="text3"><img src="images/learning/end-user.png" style="width:30%; float:right; padding:8px; border-radius:80%; ">
+				  <h2>Do you know?</h2>
+				  <h2>"We should also equip the end users with knowledge of the technologies and data science to speed up the process of digital transformation"</h2>
+				  <h3 style="color: #778899">Scroll down to find out more! <a href="#features" class="button small icon fa-arrow-circle-right">Let's go</a> </h3>
+				  </div>
+				</div>
+					  
+				<div class="mySlides fade">  
+				  <img src="./images/backgrounds/bluebackground4.png" style="height: 40%">
+				  <div class="text3"><img src="images/people/alan-teach.jpg" style="width:25%; float:right; padding:8px; border-radius:80%;">
+				  <h3 style="color: #778899">Digital Transformation & Innovation skills can be learnt at young age. But, we need to apply them through critical thinking, design thinking, problem solving and envisioning in the real-world to master it</h3>
+				  </div>	
+				</div>
+				
+			</div>
+				
+				<div style="text-align:center">
+				  <span class="dot"></span> 
+				  <span class="dot"></span> 
+				  <span class="dot"></span> 
+				  <span class="dot"></span> 
+				</div>
+				<br><br>
 
-.topnav a.active {
-  background-color: #4CAF50;
-  color: white;
-}
-</style>
-</head>
-<body>
-    
-<div class="topnav">
-    <a class="active" href="https://alanchow85.github.io/">Home</a>
-    <a href="https://alanchow85.github.io/bpr/">BPR</a>
-    <a href="https://alanchow85.github.io/webAPIcall/">webAPI</a>
-    <a href="https://alanchow85.github.io/tableau/">Dashboard</a>
-    <a href="https://alanchow85.github.io/python/">Python Programming</a>
-    <a href="https://alanchow85.github.io/ML/">Machine Learning</a>
-    <a href="https://alanchow85.github.io/image_classification/">Image Classification</a>
-    <a href="https://alanchow85.github.io/about/">About</a>
-</div>
-<div style="padding-left:16px">
+			<a id="features"></a>
+			<!-- Features -->
+				<div id="features-wrapper">
+					<div class="container">
+						<div class="row">
+							<div class="4u 12u(medium)">
 
-<style>
-    img {
-        width: auto ;
-        max-width: 100%;
-        height: auto;
-    }
-</style> 
-    
-  <h1>Combining Business Process Re-engineering and Data Analytics</h1>
-  <p>
-    
-      With the rise of Big data, a data-driven approach to business is transforming enterprises. Firms today are thinking about using data in myriad new ways to drive business values; from enhancing productivity by reducing business processing time. In order to do so with organisation data, we need to harvest the power of Data analytics to identify the bottlenecks and to combine with business process re-engineering to offer innovative services to the public or customers. One the other hand, business processes also need to be re-engineered for data analytics and a data-driven decision making.
-      <br><br>
-      
-      <h2>What is Business Process Re-engineering (BPR)?</h2>
-        <p>
-    
-        It is a business management strategy that focuses on analysing and redesigning business workflows and processes in an organisation. It leverages various frameworks from design-thinking to lean Six sigma to propose solutions that remove waste and streamline processes The following diagram summarises the steps to carry out BPR. If you like to know more, click on the BPR tap or icon above.</p><br>
-        <img src="images/process/pic.png" width="1000" height="500" align="middle">
-      
-      <br><br>
-      <h2>Data Analytics Techniques</h2>
-    
+								<!-- Box -->
+									<section class="box feature">
+										<a href="#" class="image featured"><img src="images/process/process.png" alt="" /></a>
+										<div class="inner">
+											<header>
+												<h2>Process</h2>
+											</header>
+											<p>Business process re-engineering is one of the key elements for any successful digital transformation to occur in an organisation</p>
+										</div>
+										<a href="pages/process.html" class="button icon fa-file-text-o">More</a>
+									</section>
 
-      <img src="images/process/pic2.png" width="1000" height="500" align="middle">
-        <br><br><br>
-      
-      This website also provide some examples on data analytics, web API calls, machine learning, and data visualisation tools for a data-driven decision making.
-    </p>
-</div>
+							</div>
+							<div class="4u 12u(medium)">
 
-</body>
+								<!-- Box -->
+									<section class="box feature">
+										<a href="#" class="image featured"><img src="images/technology/tech.png" alt="" /></a>
+										<div class="inner">
+											<header>
+												<h2>Technology</h2>
+											</header>
+											<p>Click here and be informed with the operations technologies and trends that i have identified from my research and work experiences</p>
+										</div>
+										<a href="pages/technologies.html" class="button icon fa-file-text-o">More</a>
+									</section>
+							</div>
+							<div class="4u 12u(medium)">
 
+								<!-- Box -->
+									<section class="box feature">
+										<a href="#" class="image featured"><img src="images/people/people.png" alt="" /></a>
+										<div class="inner">
+											<header>
+												<h2>People</h2>
+											</header>
+											<p>If we do not upskill and reskill our people, we will not be able to maximise the potential of the new technologies acquired</p>
+										</div>
+										<a href="pages/people.html" class="button icon fa-file-text-o">More</a>
+									</section>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			<!-- Footer -->
+				<div id="footer-wrapper">
+					<footer id="footer" class="container">
+					<div class="row">
+							<div class="3u 6u(medium) 12u$(small)">
+
+								<!-- Links -->
+									<section class="widget links">
+										<h3>Fun Fact 1</h3>
+										<h3>Do you know that you can automate tons of mundane business tasks with AI, Intelligent Automation and RPA?</h3>
+										<ul class="style2">
+											<li><a href="https://pm.dartus.fr/posts/2025/how-llm-generate-text/"> Click Here to know more on Artificial Intelligence </a></li>											<li><a href="https://github.com/alanchow85/AIUP2">Click Here to see my training content on AI</a> </li>
+											<li><a href="https://github.com/alanchow85/AIUP2">Click Here to see my training content on AI</a> </li>
+											<li><a href="https://github.com/alanchow85/RPA/">Click Here to see my training content on intelligent Automation</a> </li>
+											<li><a href="https://www.uipath.com/"> Click Here to know more on RPA</a></li>
+											<li><a href="https://github.com/alanchow85/excelAutomation">Click Here to see the training content on RPA</a> </li>
+										</ul>
+									</section>
+
+							</div>
+							<div class="3u 6u$(medium) 12u$(small)">
+
+								<!-- Links -->
+									<section class="widget links">
+										<h3>Fun Fact 2</h3>
+										<h3>I have done some transformation before! One of the interesting one is real estate transformation</h3>
+										<ul class="style2">
+											<li><a href="https://www.straitstimes.com/singapore/housing/property-agents-track-records-now-available-online">Click Here to read more</a></li>
+										</ul>
+									</section>
+
+							</div>
+							<div class="3u 6u(medium) 12u$(small)">
+
+								<!-- Links -->
+									<section class="widget links">
+										<h3>Fun Fact 3</h3>
+
+										<h3>Do you know that having the right Digital Talents, framework or to upskill your staff with digital skills are as important as getting the right tech tools?</h3>
+										<ul class="style2">
+											<li><a href="https://www.gartner.com/smarterwithgartner/use-a-digital-talent-management-framework-to-future-proof-the-it-workforce">Click here to read more in Gartner Article on this!</a></li>
+										</ul>
+									</section>
+
+							</div>
+						
+							<div class="3u 6u$(medium) 12u$(small)">
+
+								<!-- Contact -->
+									<section class="widget contact last">
+										<h3>Contact Us</h3>
+										<ul>
+											<li><a href="https://www.facebook.com/chow.alan.566" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+											<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+											<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+											<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+											<li><a href="#" class="icon fa-pinterest"><span class="label">Pinterest</span></a></li>
+										</ul>
+										<p>Yishun Street 123 <br />
+										Singapore 760123<br />
+										1234 5678</p>
+									</section>
+
+							</div>
+						</div>
+						<div class="row">
+							<div class="12u">
+								<div id="copyright">
+									<ul class="menu">
+										<li>&copy; Untitled. All rights reserved</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</footer>
+				</div>
+
+			</div>
+
+		<!-- Scripts -->
+		
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+			<script>
+				var slideIndex = 0;
+				showSlides();
+				
+				function showSlides() {
+				  var i;
+				  var slides = document.getElementsByClassName("mySlides");
+				  var dots = document.getElementsByClassName("dot");
+				  for (i = 0; i < slides.length; i++) {
+					slides[i].style.display = "none";  
+				  }
+				  slideIndex++;
+				  if (slideIndex > slides.length) {slideIndex = 1}    
+				  for (i = 0; i < dots.length; i++) {
+					dots[i].className = dots[i].className.replace(" active", "");
+				  }
+				  slides[slideIndex-1].style.display = "block";  
+				  dots[slideIndex-1].className += " active";
+				  setTimeout(showSlides, 6000); // Change image every 6 seconds
+				}
+				</script>
+				
+				<script>
+				var slideIndex = 1;
+				showDivs(slideIndex);
+				
+				function plusDivs(n) {
+				  showDivs(slideIndex += n);
+				}
+				
+				function showDivs(n) {
+				  var i;
+				  var x = document.getElementsByClassName("mySlides");
+				  if (n > x.length) {slideIndex = 1}
+				  if (n < 1) {slideIndex = x.length}
+				  for (i = 0; i < x.length; i++) {
+					x[i].style.display = "none";  
+				  }
+				  x[slideIndex-1].style.display = "block";  
+				}
+			</script>
+			<!-- my chatbot -->		  
+			<script src="https://cdn.botpress.cloud/webchat/v5.0/inject.js"></script>
+			<script src="https://files.bpcontent.cloud/2026/08/19/01/20260819014011-807C32XH.js" defer></script>
+	</body>
+</html>
